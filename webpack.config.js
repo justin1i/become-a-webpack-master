@@ -70,7 +70,7 @@ switch (TARGET) {
 			parts.extractBundle({
 				name: 'vendor',
 				//entries: Object.keys(pkg.dependencies)
-				entries: ['react']
+				entries: ['react', 'react-dom']
 			}),
 			parts.minify(),
 			parts.extractCSS(PATHS.style),
