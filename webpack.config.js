@@ -45,10 +45,11 @@ const common = {
 };
 
 var config;
-
-switch (process.env.npm_lifecycle_event) {
+const TARGET = process.env.npm_lifecycle_event;
+switch (TARGET) {
 	case 'build':
 	case 'stats':
+		process.env.BABEL_ENV = TARGET;
 		config = merge(
 			common, {
 				devtool: 'source-map',
@@ -56,6 +57,12 @@ switch (process.env.npm_lifecycle_event) {
 					path: PATHS.build,
 					filename: '[name].[chunkhash].js',
 					chunkFilename: '[chunkhash].js' // 用于require.ensure
+				},
+				resolve: {
+					alias: {
+						"react": "react-lite",
+						"react-dom": "react-lite"
+					}
 				}
 			},
 			parts.clean(PATHS.build),

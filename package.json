@@ -39,6 +39,7 @@
   "homepage": "https://github.com/justin1i/become-a-webpack-master#readme",
   "dependencies": {
     "purecss": "^0.6.0",
+    "react-dom": "^15.4.1",
     "react": "^15.4.0"
   }
 }
